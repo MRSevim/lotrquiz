@@ -1,8 +1,16 @@
+import { Header } from "./components/Header";
+import { Main } from "./components/quiz/Main";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+
 function App() {
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </>
+    <Provider store={store}>
+      <div className="font-serif">
+        <Header />
+        <Main />
+      </div>
+    </Provider>
   );
 }
 
