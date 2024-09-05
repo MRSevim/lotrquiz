@@ -25,7 +25,9 @@ export const TrackBars = ({ setMenuOpen }) => {
             (quiz.progress.lastSeenQuestion < item.id
               ? " bg-slate-400 pointer-events-none"
               : "") +
-            (item.selectedAnswer ? " bg-yellow-400" : "") +
+            (item.selectedAnswer && !quiz.progress.finished
+              ? " bg-yellow-400"
+              : "") +
             (quiz.progress.finished &&
             item.selectedAnswer &&
             item.correctAnswer === item.selectedAnswer
@@ -38,6 +40,11 @@ export const TrackBars = ({ setMenuOpen }) => {
               : "")
           }
         >
+          {console.log(
+            quiz.progress.finished &&
+              item.selectedAnswer &&
+              item.correctAnswer === item.selectedAnswer
+          )}
           {item.id}
         </div>
       ))}
