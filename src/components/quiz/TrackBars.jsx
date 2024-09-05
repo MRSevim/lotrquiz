@@ -40,11 +40,6 @@ export const TrackBars = ({ setMenuOpen }) => {
               : "")
           }
         >
-          {console.log(
-            quiz.progress.finished &&
-              item.selectedAnswer &&
-              item.correctAnswer === item.selectedAnswer
-          )}
           {item.id}
         </div>
       ))}
