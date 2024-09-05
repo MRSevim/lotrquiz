@@ -2,6 +2,7 @@ import { Header } from "./components/Header";
 import { Main } from "./components/quiz/Main";
 import { store } from "./redux/store";
 import { Provider } from "react-redux";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <Header />
         <Main />
       </div>
+      <Analytics />
     </Provider>
   );
 }
