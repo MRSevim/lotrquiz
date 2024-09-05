@@ -1,15 +1,18 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { answer } from "../../redux/slices/quizSlice";
 
 export const Question = ({ item }) => {
   const dispatch = useDispatch();
+  const progress = useSelector((state) => state.quiz.progress);
 
   const handleSelect = (key) => {
-    dispatch(answer({ selectedAnswer: key, id: item.id }));
+    if (!progress.finished) {
+      dispatch(answer({ selectedAnswer: key, id: item.id }));
+    }
   };
 
   return (
-    <div key={item.id} className="m-4 ml-12 text-2xl">
+    <div key={item.id} className="m-4 text-2xl">
       <div>
         {item.id}.{item.question}
       </div>
@@ -24,14 +27,20 @@ export const Question = ({ item }) => {
             >
               <div
                 className={
-                  item.question.selectedAnswer === key
-                    ? "border-amber-300 selected"
+                  item.selectedAnswer === key
+                    ? "-m-1 border-4 border-amber-300 rounded-full"
                     : ""
                 }
               >
                 {key.toUpperCase()}-)
               </div>{" "}
               {item.answers[key]}
+              {progress.finished && key === item.correctAnswer && (
+                <i
+                  className="ms-2 text-green-500 fa fa-check"
+                  aria-hidden="true"
+                ></i>
+              )}
             </div>
           </div>
         ))}

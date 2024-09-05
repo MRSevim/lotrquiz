@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux";
 import { Question } from "./Question";
 import { TrackBars } from "./TrackBars";
+import { Buttons } from "./Buttons";
+import { Finished } from "./Finished";
 
 export const Main = () => {
   const questions = useSelector((state) => state.quiz.questions);
@@ -8,16 +10,22 @@ export const Main = () => {
 
   return (
     <section className="container my-5 mx-auto">
-      <div className="flex">
-        <div className="w-1/4">
+      <div className="flex justify-center">
+        <div className="hidden w-1/4 md:block">
           <TrackBars />
         </div>
-        <div className="w-3/4">
-          {questions.map((item) => {
-            if (progress.currentQuestion === item.id) {
-              return <Question key={item.id} item={item} />;
-            }
-          })}
+        <div className="md:w-3/4 md:mx-6">
+          {progress.showEnding && <Finished />}
+          {!progress.showEnding && (
+            <>
+              <Buttons />
+              {questions.map((item) => {
+                if (progress.currentQuestion === item.id) {
+                  return <Question key={item.id} item={item} />;
+                }
+              })}
+            </>
+          )}
         </div>
       </div>
     </section>

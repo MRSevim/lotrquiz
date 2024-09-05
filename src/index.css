@@ -6,7 +6,3 @@
   font-family: "Party Business";
   src: url("../fonts/party_business/partybusiness.ttf");
 }
-
-.selected {
-  border-radius: 10% / 20%;
-}

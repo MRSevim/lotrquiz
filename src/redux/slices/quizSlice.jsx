@@ -73,7 +73,7 @@ const initialState = {
         c: "He dies of old age",
         d: "He burns in Mount Doom alongside his precious",
       },
-      correctAnswer: "a",
+      correctAnswer: "d",
       selectedAnswer: null,
     },
     {
@@ -150,11 +150,37 @@ const initialState = {
         c: "Mumakil",
         d: "Hippogriff",
       },
-      correctAnswer: "c",
+      correctAnswer: "d",
       selectedAnswer: null,
     },
   ],
-  progress: { currentQuestion: 1, lastSeenQuestion: 1, finished: false },
+  progress: {
+    currentQuestion: 1,
+    lastSeenQuestion: 1,
+    finished: false,
+    correctQuestionCount: null,
+    displayed: null,
+    showEnding: false,
+  },
+};
+
+const possibleTexts = {
+  between03: {
+    title: "Lost in the Shadow of Mordor",
+    text: "The road goes ever on, but it seems you have wandered into the shadow. Fear not; even the smallest steps can lead to greatness. Study the lore of Middle-earth, and you may yet find your way to the light. Keep trying, for not all those who wander are lost!",
+  },
+  between47: {
+    title: "A Brave Hobbit on a Grand Adventure",
+    text: "Like a hobbit out of the Shire, you've shown courage and curiosity. You've glimpsed the wonders of Middle-earth, but there are many paths yet to tread. Keep your feet steady and your heart stout; adventure still calls, and you have the spirit to answer.",
+  },
+  between811: {
+    title: "A Ranger of the North, Wise and Skilled",
+    text: "You have the knowledge of a seasoned ranger, familiar with the hidden paths of Middle-earth. Your wisdom rivals that of Aragorn himself. Yet, there is always more to discover. Continue your quest, for the true king of trivia has yet to be crowned!",
+  },
+  at12: {
+    title: "The Heir of Gondor, True King of Middle-earth!",
+    text: "You stand triumphant, as if crowned by the light of Eärendil himself! Your knowledge shines brighter than the Silmarils, and your understanding rivals that of the wisest Elves. You are the true champion of Middle-earth, a legend among lore-masters. All hail the King!",
+  },
 };
 
 export const quizSlice = createSlice({
@@ -170,17 +196,65 @@ export const quizSlice = createSlice({
       });
 
       state.questions = newQuestions;
-      if (state.progress.currentQuestion === action.payload.id) {
-        state.progress.currentQuestion += 1;
-      }
-      if (state.progress.lastSeenQuestion === action.payload.id) {
+    },
+    selectQuestion: (state, action) => {
+      state.progress.showEnding = false;
+      state.progress.currentQuestion = action.payload.selectedQuestion;
+    },
+    goToNextQuestion: (state) => {
+      if (state.progress.lastSeenQuestion === state.progress.currentQuestion) {
         state.progress.lastSeenQuestion += 1;
       }
+
+      if (state.progress.currentQuestion < state.questions.length) {
+        state.progress.currentQuestion += 1;
+      }
+    },
+    goToPreviousQuestion: (state) => {
+      if (state.progress.currentQuestion > 1) {
+        state.progress.currentQuestion -= 1;
+      }
+    },
+    finish: (state) => {
+      state.progress.finished = true;
+      state.progress.showEnding = true;
+      state.progress.correctQuestionCount = state.questions.filter(
+        (item) => item.correctAnswer === item.selectedAnswer
+      ).length;
+
+      if (
+        0 <= state.progress.correctQuestionCount &&
+        state.progress.correctQuestionCount <= 3
+      ) {
+        state.progress.displayed = possibleTexts.between03;
+      } else if (
+        4 <= state.progress.correctQuestionCount &&
+        state.progress.correctQuestionCount <= 7
+      ) {
+        state.progress.displayed = possibleTexts.between47;
+      } else if (
+        8 <= state.progress.correctQuestionCount &&
+        state.progress.correctQuestionCount <= 11
+      ) {
+        state.progress.displayed = possibleTexts.between811;
+      } else if (state.progress.correctQuestionCount === 12) {
+        state.progress.displayed = possibleTexts.at12;
+      }
+    },
+    showEnding: (state) => {
+      state.progress.showEnding = true;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { answer } = quizSlice.actions;
+export const {
+  answer,
+  selectQuestion,
+  goToNextQuestion,
+  goToPreviousQuestion,
+  finish,
+  showEnding,
+} = quizSlice.actions;
 
 export default quizSlice.reducer;
