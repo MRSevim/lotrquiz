@@ -5,7 +5,7 @@ const initialState = {
     {
       id: 1,
       image: {
-        src: "/src/assets/images/1.webp",
+        src: "/images/1.webp",
         alt: "Frodo falling with the ring",
       },
       question: "What is the fate of Frodo after the War of the Ring?",
@@ -21,7 +21,7 @@ const initialState = {
     {
       id: 2,
       image: {
-        src: "/src/assets/images/2.webp",
+        src: "/images/2.webp",
         alt: "Frodo and Sam leaving Shire",
       },
       question:
@@ -37,7 +37,7 @@ const initialState = {
     },
     {
       id: 3,
-      image: { src: "/src/assets/images/3.webp", alt: "Jolly Tom Bombadil" },
+      image: { src: "/images/3.webp", alt: "Jolly Tom Bombadil" },
       question:
         "Who is Tom Bombadil, whom the Fellowship meets in the books but not in the movies?",
       answers: {
@@ -52,7 +52,7 @@ const initialState = {
     {
       id: 4,
       image: {
-        src: "/src/assets/images/4.webp",
+        src: "/images/4.webp",
         alt: "Saruman using palantir",
       },
       question: "In the movies, what is the fate of Saruman?",
@@ -68,7 +68,7 @@ const initialState = {
     {
       id: 5,
       image: {
-        src: "/src/assets/images/5.webp",
+        src: "/images/5.webp",
         alt: "Leader of the Dead Army",
       },
       question: "What is the name of the undead army Aragorn commanded?",
@@ -83,7 +83,7 @@ const initialState = {
     },
     {
       id: 6,
-      image: { src: "/src/assets/images/6.webp", alt: "Gollum being adorable" },
+      image: { src: "/images/6.webp", alt: "Gollum being adorable" },
       question: "What happens to gollum in the end?",
       answers: {
         a: "Frodo forgives Gollum and they become friends",
@@ -97,7 +97,7 @@ const initialState = {
     {
       id: 7,
       image: {
-        src: "/src/assets/images/7.webp",
+        src: "/images/7.webp",
         alt: "Battle of the Pelennor Fields clash",
       },
       question:
@@ -113,7 +113,7 @@ const initialState = {
     },
     {
       id: 8,
-      image: { src: "/src/assets/images/8.webp", alt: "One Ring" },
+      image: { src: "/images/8.webp", alt: "One Ring" },
       question:
         "Who is depicted as the primary antagonist that is also Lord of the Rings in the trilogy?",
       answers: {
@@ -127,7 +127,7 @@ const initialState = {
     },
     {
       id: 9,
-      image: { src: "/src/assets/images/9.webp", alt: "Creature swimming" },
+      image: { src: "/images/9.webp", alt: "Creature swimming" },
       question:
         "What is the name of the creature that guards the lake at the Western Gate of Moria?",
       answers: {
@@ -142,7 +142,7 @@ const initialState = {
     {
       id: 10,
       image: {
-        src: "/src/assets/images/10.webp",
+        src: "/images/10.webp",
         alt: "Fellowship of the Ring",
       },
       question:
@@ -158,7 +158,7 @@ const initialState = {
     },
     {
       id: 11,
-      image: { src: "/src/assets/images/11.webp", alt: "Gandalf Agitated" },
+      image: { src: "/images/11.webp", alt: "Gandalf Agitated" },
       question: "Which place represent the good side in the trilogy?",
       answers: {
         a: "Minas Morgul",
@@ -171,7 +171,7 @@ const initialState = {
     },
     {
       id: 12,
-      image: { src: "/src/assets/images/12.webp", alt: "Smaug in Erebor" },
+      image: { src: "/images/12.webp", alt: "Smaug in Erebor" },
       question:
         "Which of the below does not exist in Lord Of The Rings universe?",
       answers: {
@@ -197,7 +197,7 @@ const initialState = {
 const possibleEndings = {
   between03: {
     image: {
-      src: "/src/assets/images/ending1.webp",
+      src: "/images/ending1.webp",
       alt: "Mordor",
     },
     title: "Lost in the Shadow of Mordor",
@@ -205,7 +205,7 @@ const possibleEndings = {
   },
   between47: {
     image: {
-      src: "/src/assets/images/ending2.webp",
+      src: "/images/ending2.webp",
       alt: "Fellowship of the ring Drawing by haley",
     },
 
@@ -214,7 +214,7 @@ const possibleEndings = {
   },
   between811: {
     image: {
-      src: "/src/assets/images/ending3.webp",
+      src: "/images/ending3.webp",
       alt: "Boromir and Faramir side by side",
     },
 
@@ -223,7 +223,7 @@ const possibleEndings = {
   },
   at12: {
     image: {
-      src: "/src/assets/images/ending4.webp",
+      src: "/images/ending4.webp",
       alt: "Galadriel looking at her ring",
     },
 
