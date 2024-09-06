@@ -4,6 +4,10 @@ const initialState = {
   questions: [
     {
       id: 1,
+      image: {
+        src: "/src/assets/images/1.webp",
+        alt: "Frodo falling with the ring",
+      },
       question: "What is the fate of Frodo after the War of the Ring?",
       answers: {
         a: "He remains in the Shire",
@@ -16,6 +20,10 @@ const initialState = {
     },
     {
       id: 2,
+      image: {
+        src: "/src/assets/images/2.webp",
+        alt: "Frodo and Sam leaving Shire",
+      },
       question:
         "How does Frodo’s journey differ between the books and movies when departing the Shire after his dear uncle leaves it?",
       answers: {
@@ -29,6 +37,7 @@ const initialState = {
     },
     {
       id: 3,
+      image: { src: "/src/assets/images/3.webp", alt: "Jolly Tom Bombadil" },
       question:
         "Who is Tom Bombadil, whom the Fellowship meets in the books but not in the movies?",
       answers: {
@@ -42,6 +51,10 @@ const initialState = {
     },
     {
       id: 4,
+      image: {
+        src: "/src/assets/images/4.webp",
+        alt: "Saruman using palantir",
+      },
       question: "In the movies, what is the fate of Saruman?",
       answers: {
         a: "He is killed by Wormtongue at Isengard",
@@ -54,6 +67,10 @@ const initialState = {
     },
     {
       id: 5,
+      image: {
+        src: "/src/assets/images/5.webp",
+        alt: "Leader of the Dead Army",
+      },
       question: "What is the name of the undead army Aragorn commanded?",
       answers: {
         a: "Army of the Dead",
@@ -66,6 +83,7 @@ const initialState = {
     },
     {
       id: 6,
+      image: { src: "/src/assets/images/6.webp", alt: "Gollum being adorable" },
       question: "What happens to gollum in the end?",
       answers: {
         a: "Frodo forgives Gollum and they become friends",
@@ -78,6 +96,10 @@ const initialState = {
     },
     {
       id: 7,
+      image: {
+        src: "/src/assets/images/7.webp",
+        alt: "Battle of the Pelennor Fields clash",
+      },
       question:
         "Which character in the movies says, “That still only counts as one!” during the Battle of Pelennor Fields?",
       answers: {
@@ -91,6 +113,7 @@ const initialState = {
     },
     {
       id: 8,
+      image: { src: "/src/assets/images/8.webp", alt: "One Ring" },
       question:
         "Who is depicted as the primary antagonist that is also Lord of the Rings in the trilogy?",
       answers: {
@@ -104,6 +127,7 @@ const initialState = {
     },
     {
       id: 9,
+      image: { src: "/src/assets/images/9.webp", alt: "Creature swimming" },
       question:
         "What is the name of the creature that guards the lake at the Western Gate of Moria?",
       answers: {
@@ -117,6 +141,10 @@ const initialState = {
     },
     {
       id: 10,
+      image: {
+        src: "/src/assets/images/10.webp",
+        alt: "Fellowship of the Ring",
+      },
       question:
         "Which character that exist in the books were left out of movies?",
       answers: {
@@ -130,6 +158,7 @@ const initialState = {
     },
     {
       id: 11,
+      image: { src: "/src/assets/images/11.webp", alt: "Gandalf Agitated" },
       question: "Which place represent the good side in the trilogy?",
       answers: {
         a: "Minas Morgul",
@@ -142,6 +171,7 @@ const initialState = {
     },
     {
       id: 12,
+      image: { src: "/src/assets/images/12.webp", alt: "Smaug in Erebor" },
       question:
         "Which of the below does not exist in Lord Of The Rings universe?",
       answers: {
@@ -164,22 +194,41 @@ const initialState = {
   },
 };
 
-const possibleTexts = {
+const possibleEndings = {
   between03: {
+    image: {
+      src: "/src/assets/images/ending1.webp",
+      alt: "Mordor",
+    },
     title: "Lost in the Shadow of Mordor",
     text: "The road goes ever on, but it seems you have wandered into the shadow. Fear not; even the smallest steps can lead to greatness. Study the lore of Middle-earth, and you may yet find your way to the light. Keep trying, for not all those who wander are lost!",
   },
   between47: {
-    title: "A Brave Hobbit on a Grand Adventure",
-    text: "Like a hobbit out of the Shire, you've shown courage and curiosity. You've glimpsed the wonders of Middle-earth, but there are many paths yet to tread. Keep your feet steady and your heart stout; adventure still calls, and you have the spirit to answer.",
+    image: {
+      src: "/src/assets/images/ending2.webp",
+      alt: "Fellowship of the ring Drawing by haley",
+    },
+
+    title: "The Courage of the Fellowship",
+    text: "You have the heart of a hero, standing side by side with the Fellowship. Whether wielding the courage of Samwise, the wisdom of Gandalf, or the strength of Gimli, you’ve shown great spirit. You’ve traveled far, but there are still lands to explore and stories to uncover!",
   },
   between811: {
-    title: "A Ranger of the North, Wise and Skilled",
-    text: "You have the knowledge of a seasoned ranger, familiar with the hidden paths of Middle-earth. Your wisdom rivals that of Aragorn himself. Yet, there is always more to discover. Continue your quest, for the true king of trivia has yet to be crowned!",
+    image: {
+      src: "/src/assets/images/ending3.webp",
+      alt: "Boromir and Faramir side by side",
+    },
+
+    title: "A Guardian of Middle-earth: Wise and Honorable",
+    text: "Like the Elves of Rivendell or the Dúnedain Rangers, your knowledge is deep and your journey long. You have proven yourself a protector of the free peoples, with wisdom and valor to match. Few can claim such understanding of Middle-earth’s secrets—your legend grows!",
   },
   at12: {
-    title: "The Heir of Gondor, True King of Middle-earth!",
-    text: "You stand triumphant, as if crowned by the light of Eärendil himself! Your knowledge shines brighter than the Silmarils, and your understanding rivals that of the wisest Elves. You are the true champion of Middle-earth, a legend among lore-masters. All hail the King!",
+    image: {
+      src: "/src/assets/images/ending4.webp",
+      alt: "Galadriel looking at her ring",
+    },
+
+    title: "Champion of the Ages: A Legend of Middle-earth!",
+    text: "You stand among the greatest, like Aragorn reclaiming the throne of Gondor or Galadriel wielding the power of her ring. Your knowledge is unmatched, your wisdom profound. The tales of Middle-earth are yours to command, and your name will be sung in the halls of Valinor. A true champion has arisen!",
   },
 };
 
@@ -226,19 +275,19 @@ export const quizSlice = createSlice({
         0 <= state.progress.correctQuestionCount &&
         state.progress.correctQuestionCount <= 3
       ) {
-        state.progress.displayed = possibleTexts.between03;
+        state.progress.displayed = possibleEndings.between03;
       } else if (
         4 <= state.progress.correctQuestionCount &&
         state.progress.correctQuestionCount <= 7
       ) {
-        state.progress.displayed = possibleTexts.between47;
+        state.progress.displayed = possibleEndings.between47;
       } else if (
         8 <= state.progress.correctQuestionCount &&
         state.progress.correctQuestionCount <= 11
       ) {
-        state.progress.displayed = possibleTexts.between811;
+        state.progress.displayed = possibleEndings.between811;
       } else if (state.progress.correctQuestionCount === 12) {
-        state.progress.displayed = possibleTexts.at12;
+        state.progress.displayed = possibleEndings.at12;
       }
     },
     showEnding: (state) => {

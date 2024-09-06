@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { answer } from "../../redux/slices/quizSlice";
+import { Buttons } from "./Buttons";
+import { CenteredImage } from "../CenteredImage";
 
 export const Question = ({ item }) => {
   const dispatch = useDispatch();
@@ -12,8 +14,10 @@ export const Question = ({ item }) => {
   };
 
   return (
-    <div key={item.id} className="m-4 text-2xl">
+    <div key={item.id} className="mx-4 text-2xl">
       <div>
+        <CenteredImage src={item.image.src} alt={item.image.alt} />
+        <Buttons />
         {item.id}.{item.question}
       </div>
       <div className="my-3">

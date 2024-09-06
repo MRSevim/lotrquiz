@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { Question } from "./Question";
 import { TrackBars } from "./TrackBars";
-import { Buttons } from "./Buttons";
 import { Finished } from "./Finished";
 
 export const Main = () => {
@@ -18,7 +17,6 @@ export const Main = () => {
           {progress.showEnding && <Finished />}
           {!progress.showEnding && (
             <>
-              <Buttons />
               {questions.map((item) => {
                 if (progress.currentQuestion === item.id) {
                   return <Question key={item.id} item={item} />;

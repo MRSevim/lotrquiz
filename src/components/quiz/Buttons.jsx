@@ -35,20 +35,24 @@ export const Buttons = () => {
       {progress.finished && (
         <Button onClick={seeEndingClick}>See ending</Button>
       )}
-      <Button onClick={goToNextq} disabled={progress.currentQuestion === 12}>
+      <Button
+        onClick={goToNextq}
+        extraClasses={progress.currentQuestion === 12 ? " hidden" : ""}
+      >
         Next
       </Button>
     </div>
   );
 };
 
-const Button = ({ children, onClick, disabled }) => {
+const Button = ({ children, onClick, disabled, extraClasses }) => {
   return (
     <button
       onClick={onClick}
       className={
         "cursor-pointer text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 m-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" +
-        (disabled ? " pointer-events-none	dark:bg-gray-600" : "")
+        (disabled ? " pointer-events-none	dark:bg-gray-600" : "") +
+        extraClasses
       }
     >
       {children}
